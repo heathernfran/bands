@@ -2,6 +2,7 @@ import { useState } from "react";
 import { sanitize } from "dompurify";
 
 import { Ticket } from "../Ticket";
+import { TotalAmount } from "../TotalAmount";
 import type { Band } from "../../types";
 import { formatDate } from "../../utilities/formatDate";
 
@@ -45,6 +46,8 @@ export function BandForm({ band }: Props) {
           ticket={ticket}
         />
       ))}
+
+      <TotalAmount total={total} />
     </div>
   );
 }

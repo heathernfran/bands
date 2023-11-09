@@ -1,5 +1,6 @@
 import { sanitize } from "dompurify";
 
+import { Ticket } from "../Ticket";
 import type { Band } from "../../types";
 import { formatDate } from "../../utilities/formatDate";
 
@@ -22,9 +23,7 @@ export function BandForm({ band }: Props) {
       />
 
       {band.ticketTypes.map((ticket) => (
-        <p key={ticket.name}>
-          {ticket.name} - {ticket.description}
-        </p>
+        <Ticket key={`${band.id}_${ticket.name}`} ticket={ticket} />
       ))}
     </div>
   );

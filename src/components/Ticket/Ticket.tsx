@@ -7,7 +7,7 @@ interface Props {
 
 export function Ticket({ ticket }: Props) {
   return (
-    <div key={ticket.type}>
+    <div>
       <p>{ticket.name}</p>
       <p>{ticket.description}</p>
       <p>{`$${convertCentsToDollars(ticket.cost)}`}</p>

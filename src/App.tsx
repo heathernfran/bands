@@ -1,24 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+
+import skaBand from "./band-json/ska-band.json";
+import kpopBand from "./band-json/kpop-band.json";
+import punkBand from "./band-json/punk-band.json";
+import { BandForm } from "./components/BandForm";
 
 function App() {
+  const [bands] = useState([skaBand, kpopBand, punkBand]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {bands.map((band) => (
+        <BandForm band={band} key={band.id} />
+      ))}
     </div>
   );
 }

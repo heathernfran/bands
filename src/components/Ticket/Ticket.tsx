@@ -22,15 +22,16 @@ export function Ticket({ handleTotal, ticket }: Props) {
   };
 
   return (
-    <div>
-      <p>{ticket.name}</p>
+    <div className="my-4">
+      <p className="text-lg">{ticket.name.toUpperCase()}</p>
       <p>{ticket.description}</p>
       <p>{`$${ticketCost}`}</p>
-      <label htmlFor="ticket-cost">Tickets cost:</label>
+      <label htmlFor="tickets">Ticket:</label>
       <input
+        className="border-2 border-slate-400"
         max={100}
         min={0}
-        name="ticket-cost"
+        name="tickets"
         onChange={handleChange}
         type="number"
       />

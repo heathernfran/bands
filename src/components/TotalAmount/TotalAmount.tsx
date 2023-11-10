@@ -8,9 +8,15 @@ export function TotalAmount({ total }: Props) {
   };
 
   return (
-    <>
-      <p>Total amount for tickets: ${total}</p>
-      <button onClick={handleClick}>Purchase Tickets</button>
-    </>
+    <div className="my-4">
+      <p>TOTAL: ${total}</p>
+      <button
+        className="bg-slate-700 text-slate-100 p-2"
+        disabled={total === 0}
+        onClick={handleClick}
+      >
+        Get Tickets
+      </button>
+    </div>
   );
 }

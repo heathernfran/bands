@@ -22,27 +22,32 @@ export function BandForm({ band }: Props) {
   };
 
   return (
-    <div>
-      <h1>{band.name}</h1>
-      <p>{formatDate(band.date)}</p>
-      <p>{band.location}</p>
-      <img
-        alt={`Learn more about ${band.name} concerts`}
-        src={`${band.imgUrl}`}
-      />
-      <div
-        dangerouslySetInnerHTML={{ __html: sanitize(band.description_blurb) }}
-      />
-
-      {band.ticketTypes.map((ticket) => (
-        <Ticket
-          handleTotal={handleTotal}
-          key={`${band.id}_${ticket.name}`}
-          ticket={ticket}
+    <div className="grid grid-cols-2 mx-4 my-12">
+      <div>
+        <h1 className="font-extrabold text-3xl">{band.name}</h1>
+        <p>{formatDate(band.date)}</p>
+        <p>{band.location}</p>
+        <img
+          alt={`Learn more about ${band.name} concerts`}
+          src={`${band.imgUrl}`}
         />
-      ))}
+        <div
+          dangerouslySetInnerHTML={{ __html: sanitize(band.description_blurb) }}
+        />
+      </div>
 
-      <TotalAmount total={total} />
+      <div>
+        <h2 className="font-bold text-2xl">Select Tickets</h2>
+        {band.ticketTypes.map((ticket) => (
+          <Ticket
+            handleTotal={handleTotal}
+            key={`${band.id}_${ticket.name}`}
+            ticket={ticket}
+          />
+        ))}
+
+        <TotalAmount total={total} />
+      </div>
     </div>
   );
 }

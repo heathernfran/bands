@@ -1,8 +1,17 @@
+import { useId } from "react";
+
 interface Props {
   total: number;
 }
 
 export function TotalAmount({ total }: Props) {
+  const firstNameId = useId();
+  const lastNameId = useId();
+  const addressId = useId();
+  const ccId = useId();
+  const expiryId = useId();
+  const cvvId = useId();
+
   const handleSubmit = () => {
     console.log("Total cost for tickets:", total);
   };
@@ -12,35 +21,35 @@ export function TotalAmount({ total }: Props) {
       <p>TOTAL: ${total}</p>
       <form>
         <div>
-          <label hidden htmlFor="first-name">
+          <label hidden htmlFor={firstNameId}>
             First Name
           </label>
           <input
             className="border-2 border-slate-400"
-            id="first-name"
-            name="first-name"
+            id={firstNameId}
+            name={firstNameId}
             placeholder="First Name"
             required
             type="text"
           />
-          <label hidden htmlFor="last-name">
+          <label hidden htmlFor={lastNameId}>
             Last Name
           </label>
           <input
             className="border-2 border-slate-400"
-            id="last-name"
-            name="last-name"
+            id={lastNameId}
+            name={lastNameId}
             placeholder="Last Name"
             required
             type="text"
           />
-          <label hidden htmlFor="address">
-            Address Name
+          <label hidden htmlFor={addressId}>
+            Address
           </label>
           <input
             className="border-2 border-slate-400"
-            id="address"
-            name="address"
+            id={addressId}
+            name={addressId}
             placeholder="Address"
             required
             type="text"
@@ -48,38 +57,38 @@ export function TotalAmount({ total }: Props) {
         </div>
         <div>
           <p className="font-bold">Payment Details</p>
-          <label hidden htmlFor="cc">
+          <label hidden htmlFor={ccId}>
             Credit Card
           </label>
           <input
             className="border-2 border-slate-400"
-            id="cc"
+            id={ccId}
             maxLength={16}
-            name="cc"
+            name={ccId}
             placeholder="0000 0000 0000 0000"
             required
             type="text"
           />
-          <label hidden htmlFor="expiry">
+          <label hidden htmlFor={expiryId}>
             Expiry
           </label>
           <input
             className="border-2 border-slate-400"
-            id="expiry"
+            id={expiryId}
             maxLength={4}
-            name="expiry"
+            name={expiryId}
             placeholder="MM/YY"
             required
             type="text"
           />
-          <label hidden htmlFor="ccv">
+          <label hidden htmlFor={cvvId}>
             CCV
           </label>
           <input
             className="border-2 border-slate-400"
-            id="ccv"
+            id={cvvId}
             maxLength={3}
-            name="ccv"
+            name={cvvId}
             placeholder="CCV"
             required
             type="text"

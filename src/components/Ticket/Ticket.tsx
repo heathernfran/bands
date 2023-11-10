@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useId, useState } from "react";
 import type { Ticket as TicketType } from "../../types";
 import { convertCentsToDollars } from "../../utilities/convertCentsToDollars";
 
@@ -8,6 +8,8 @@ interface Props {
 }
 
 export function Ticket({ handleTotal, ticket }: Props) {
+  const ticketsId = useId();
+
   const [previousnumberOfTickets, setPreviousNumberOfTickets] = useState(0);
   const [ticketCost] = useState(convertCentsToDollars(ticket.cost));
 
@@ -26,15 +28,15 @@ export function Ticket({ handleTotal, ticket }: Props) {
       <p className="text-lg">{ticket.name.toUpperCase()}</p>
       <p>{ticket.description}</p>
       <p>{`$${ticketCost}`}</p>
-      <label hidden htmlFor="tickets">
-        Ticket:
+      <label hidden htmlFor={ticketsId}>
+        Tickets
       </label>
       <input
         className="border-2 border-slate-400"
-        id="tickets"
+        id={ticketsId}
         max={100}
         min={0}
-        name="tickets"
+        name={ticketsId}
         onChange={handleChange}
         type="number"
       />

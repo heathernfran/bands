@@ -13,11 +13,11 @@ interface Props {
 export function BandForm({ band }: Props) {
   const [total, setTotal] = useState(0);
 
-  const handleTotal = (amountPerTicket: number, decrease: boolean = false) => {
-    if (decrease) {
-      setTotal((previousTotal) => previousTotal - amountPerTicket);
-    } else {
+  const handleTotal = (amountPerTicket: number, increment: boolean = false) => {
+    if (increment) {
       setTotal((previousTotal) => previousTotal + amountPerTicket);
+    } else {
+      setTotal((previousTotal) => previousTotal - amountPerTicket);
     }
   };
 

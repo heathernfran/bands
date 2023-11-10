@@ -10,11 +10,12 @@ interface Props {
 export function Ticket({ handleTotal, ticket }: Props) {
   const ticketsId = useId();
 
-  const [previousnumberOfTickets, setPreviousNumberOfTickets] = useState(0);
-  const [ticketCost] = useState(convertCentsToDollars(ticket.cost));
+  const [previousNumberOfTickets, setPreviousNumberOfTickets] = useState(0);
+
+  const ticketCost = convertCentsToDollars(ticket.cost);
 
   const handleChange = (e: any) => {
-    if (e.target.value < previousnumberOfTickets) {
+    if (e.target.value > previousNumberOfTickets) {
       handleTotal(ticketCost, true);
     } else {
       handleTotal(ticketCost);
@@ -31,6 +32,7 @@ export function Ticket({ handleTotal, ticket }: Props) {
       <label htmlFor={ticketsId}>Tickets</label>
       <input
         className="border-2 border-slate-400"
+        defaultValue={0}
         id={ticketsId}
         max={100}
         min={0}

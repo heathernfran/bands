@@ -36,7 +36,7 @@ export function BandForm({ band }: Props) {
         />
       </div>
 
-      <div>
+      <div className="bg-slate-100 p-4">
         <h2 className="font-bold text-2xl">Select Tickets</h2>
         {band.ticketTypes.map((ticket) => (
           <Ticket

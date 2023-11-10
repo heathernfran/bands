@@ -12,7 +12,8 @@ export function TotalAmount({ total }: Props) {
   const expiryId = useId();
   const cvvId = useId();
 
-  const handleClick = () => {
+  const handleClick = (e: any) => {
+    e.preventDefault();
     console.log("Total cost for tickets:", total);
   };
 
@@ -65,6 +66,7 @@ export function TotalAmount({ total }: Props) {
             id={ccId}
             maxLength={16}
             name={ccId}
+            pattern="[0-9]{13,16}"
             placeholder="0000 0000 0000 0000"
             required
             type="text"
@@ -75,20 +77,22 @@ export function TotalAmount({ total }: Props) {
           <input
             className="border-2 border-slate-400"
             id={expiryId}
-            maxLength={4}
+            maxLength={5}
             name={expiryId}
+            pattern="(0[1-9]|1[0-2])\/\d{2}"
             placeholder="MM/YY"
             required
             type="text"
           />
           <label className="block" htmlFor={cvvId}>
-            CCV
+            CVV
           </label>
           <input
             className="border-2 border-slate-400"
             id={cvvId}
             maxLength={3}
             name={cvvId}
+            pattern="\d{3,4}"
             placeholder="CCV"
             required
             type="text"

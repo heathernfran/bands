@@ -28,9 +28,7 @@ export function Ticket({ handleTotal, ticket }: Props) {
       <p className="text-lg">{ticket.name.toUpperCase()}</p>
       <p>{ticket.description}</p>
       <p>{`$${ticketCost}`}</p>
-      <label hidden htmlFor={ticketsId}>
-        Tickets
-      </label>
+      <label htmlFor={ticketsId}>Tickets</label>
       <input
         className="border-2 border-slate-400"
         id={ticketsId}

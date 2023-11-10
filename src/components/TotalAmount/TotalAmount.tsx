@@ -12,16 +12,16 @@ export function TotalAmount({ total }: Props) {
   const expiryId = useId();
   const cvvId = useId();
 
-  const handleSubmit = () => {
+  const handleClick = () => {
     console.log("Total cost for tickets:", total);
   };
 
   return (
     <div className="my-4">
-      <p>TOTAL: ${total}</p>
+      <p className="text-xl my-2">TOTAL: ${total}</p>
       <form>
         <div>
-          <label hidden htmlFor={firstNameId}>
+          <label className="block" htmlFor={firstNameId}>
             First Name
           </label>
           <input
@@ -32,7 +32,7 @@ export function TotalAmount({ total }: Props) {
             required
             type="text"
           />
-          <label hidden htmlFor={lastNameId}>
+          <label className="block" htmlFor={lastNameId}>
             Last Name
           </label>
           <input
@@ -43,7 +43,7 @@ export function TotalAmount({ total }: Props) {
             required
             type="text"
           />
-          <label hidden htmlFor={addressId}>
+          <label className="block" htmlFor={addressId}>
             Address
           </label>
           <input
@@ -57,7 +57,7 @@ export function TotalAmount({ total }: Props) {
         </div>
         <div>
           <p className="font-bold">Payment Details</p>
-          <label hidden htmlFor={ccId}>
+          <label className="block" htmlFor={ccId}>
             Credit Card
           </label>
           <input
@@ -69,7 +69,7 @@ export function TotalAmount({ total }: Props) {
             required
             type="text"
           />
-          <label hidden htmlFor={expiryId}>
+          <label className="block" htmlFor={expiryId}>
             Expiry
           </label>
           <input
@@ -81,7 +81,7 @@ export function TotalAmount({ total }: Props) {
             required
             type="text"
           />
-          <label hidden htmlFor={cvvId}>
+          <label className="block" htmlFor={cvvId}>
             CCV
           </label>
           <input
@@ -95,10 +95,11 @@ export function TotalAmount({ total }: Props) {
           />
         </div>
         <button
-          className="bg-slate-700 text-slate-100 p-2"
+          className={`bg-slate-800 font-semibold text-xl text-slate-100 p-2 ${
+            total === 0 && "bg-slate-500 text-white"
+          }`}
           disabled={total === 0}
-          onSubmit={handleSubmit}
-          type="submit"
+          onClick={handleClick}
         >
           Get Tickets
         </button>

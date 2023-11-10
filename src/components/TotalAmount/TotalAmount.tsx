@@ -99,8 +99,10 @@ export function TotalAmount({ total }: Props) {
           />
         </div>
         <button
-          className={`bg-slate-800 font-semibold text-xl text-slate-100 p-2 ${
-            total === 0 && "bg-slate-500 text-white"
+          className={`text-xl p-2 ${
+            total === 0
+              ? "bg-slate-300 text-black"
+              : "bg-slate-700 text-slate-100"
           }`}
           disabled={total === 0}
           onClick={handleClick}

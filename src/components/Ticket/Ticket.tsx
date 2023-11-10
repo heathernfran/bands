@@ -13,9 +13,9 @@ export function Ticket({ handleTotal, ticket }: Props) {
 
   const handleChange = (e: any) => {
     if (e.target.value < previousnumberOfTickets) {
-      handleTotal(e.target.value, ticketCost, true);
+      handleTotal(ticketCost, true);
     } else {
-      handleTotal(e.target.value, ticketCost);
+      handleTotal(ticketCost);
     }
 
     setPreviousNumberOfTickets(e.target.value);

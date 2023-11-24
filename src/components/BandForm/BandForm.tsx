@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { sanitize } from "dompurify";
+import { sanitize } from "isomorphic-dompurify";
 
 import { Ticket } from "../Ticket";
 import { TotalAmount } from "../TotalAmount";
